@@ -6,6 +6,8 @@ export default function LoginForm() {
     password: ""
   });
 
+  const disableButton = !formData.email || formData.password.length < 6;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
@@ -46,10 +48,7 @@ export default function LoginForm() {
             onChange={handleChange}
           />
         </div>
-        <button
-          type="submit"
-          disabled={(formData.email && formData.password).length < 1}
-        >
+        <button type="submit" disabled={disableButton}>
           {" "}
           Submit{" "}
         </button>
